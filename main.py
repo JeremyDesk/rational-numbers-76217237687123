@@ -1,7 +1,8 @@
+import math
 class rational:
     def __init__(self, num, den):
         if den != 0:
-            self.mun = num
+            self.num = num
             self.den = den
             self.simplify(self)
         else:
@@ -11,7 +12,9 @@ class rational:
         return f"{self.num}/{self.den}"
 
     def simplify(self):
-        return "temp"
+        idk = math.gcf(self.num,self.den)
+        self.num = self.num/idk
+        self.den = self.dem/idk
 
 def main():
     pass
