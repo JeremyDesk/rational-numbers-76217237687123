@@ -1,5 +1,8 @@
 import math
+
+
 class rational:
+
     def __init__(self, num, den):
         if type(den) is not int:
             raise ValueError("that uhhh denominator there isnt and integer 🤦")
@@ -12,21 +15,28 @@ class rational:
         else:
             raise ValueError("mmmm no no no; nuh-uh ")
 
-
-
     def __str__(self):
-        if self.num != 0:
-            return f"{self.num}/{self.den}"
+        if self.den == 1:
+            return f"{self.num}"
         else:
-            return "0"
-    def simplify(self,num,den):
-        idk = math.gcd(self.num,self.den)
-        self.num = int(self.num/idk)
-        self.den = int(self.den/idk)
+            return f"{self.num}/{self.den}"
+
+    def simplify(self, num, den):
+        if self.num == 0:
+            self.den = 1
+        idk = math.gcd(self.num, self.den)
+        self.num //= idk
+        self.den //= idk
+        if self.den < 0:
+            self.num *= -1
+            self.den *= -1
+
+
 
 def main():
-    fraction=rational(int(input("numerator:")),int(input("denominator:")))
+    fraction = rational(int(input("numerator:")), int(input("denominator:")))
     print(fraction)
+
 
 if __name__ == '__main__':
     main()
