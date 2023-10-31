@@ -44,7 +44,7 @@ class rational:
         return rational((self.num * other.num), (self.den * other.den))
 
     def __invert__(self):
-        return f"{self.den}/{-self.num}"
+        return f"{self.den}/{self.num}"
 
     def __truediv__(self, other):
         return rational((self.num * other.den), (self.den * other.num))
@@ -74,9 +74,44 @@ class rational:
     def __rtruediv__(self, other):
         return other / self
 
+    def __rpow__(self, other):
+        return
+
+    def __eq__(self, other):
+        if self.simplify == other.simplify:
+            return True
+
+    def __ne__(self, other):
+        if self.simplify == other.simplify:
+            return False
+
+    def __lt__(self, other):
+        if (self.num / self.den) < (other.num / other.den):
+            return True
+        else:
+            return False
+
+    def __gt__(self, other):
+        if (self.num / self.den) > (other.num / other.den):
+            return True
+        else:
+            return False
+
+    def __le__(self, other):
+        if (self.num / self.den) <= (other.num / other.den):
+            return True
+        else:
+            return False
+
+    def __ge__(self, other):
+        if (self.num/self.den) >= (other.num/other.den):
+            return True
+        else:
+            return False
+
 def main():
     # fraction = Rational(int(input("numerator:")), int(input("denominator:")))
-    fraction1 = rational(1, 4) ^5
+    fraction1 = rational(2, 5)>rational(1,4)
     print(fraction1)
 
 
