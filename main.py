@@ -1,20 +1,7 @@
 import math
 
-class convert:
-    def __init__(self,num):
-        if type(num) is int:
-            return f"{self}/1"
-        if type(num) is float:
-            self.num = num
-            self.fractionize(num)
-        else:
-            raise ValueError("mmmm no no no; nuh-uh 🚫🙅")
-
-    def fractionize(self,num):
-        return rational((round(self.num*1000)),1000)
-
-    def __str__(self):
-        return f"{self.num}"
+def fractionize(n):
+    return rational((round(n*1000)),1000)
 
 class rational:
 
@@ -129,7 +116,7 @@ class rational:
 def main():
     # fraction = Rational(int(input("numerator:")), int(input("denominator:")))
     fraction1 = rational(2, 5)**rational(1,4)
-    bad2 = convert(1.25)
+    bad2 = fractionize(0.943)
     print(bad2)
 
 
