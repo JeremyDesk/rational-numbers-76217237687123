@@ -1,5 +1,20 @@
 import math
 
+class convert:
+    def __init__(self,num):
+        if type(num) is int:
+            return f"{self}/1"
+        if type(num) is float:
+            self.num = num
+            self.fractionize(num)
+        else:
+            raise ValueError("mmmm no no no; nuh-uh 🚫🙅")
+
+    def fractionize(self,num):
+        return rational((round(self.num*1000)),1000)
+
+    def __str__(self):
+        return f"{self.num}"
 
 class rational:
 
@@ -13,7 +28,7 @@ class rational:
             self.den = den
             self.simplify(num, den)
         else:
-            raise ValueError("mmmm no no no; nuh-uh ")
+            raise ValueError("mmmm no no no; nuh-uh 🚫🙅 ")
 
     def __str__(self):
         if self.den == 1:
@@ -53,7 +68,9 @@ class rational:
         return self.num / self.den
 
     def __pow__(self, other):
-        return
+        self.num = self.num**float(other)
+        self.den = self.den**float(other)
+        return  f"≈ {round((self.num/self.den),3)}"
 
     def __abs__(self):
         if self.num < 0:
@@ -111,8 +128,9 @@ class rational:
 
 def main():
     # fraction = Rational(int(input("numerator:")), int(input("denominator:")))
-    fraction1 = rational(2, 5)>rational(1,4)
-    print(fraction1)
+    fraction1 = rational(2, 5)**rational(1,4)
+    bad2 = convert(1.25)
+    print(bad2)
 
 
 if __name__ == '__main__':
