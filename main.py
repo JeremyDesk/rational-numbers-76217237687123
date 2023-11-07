@@ -114,10 +114,8 @@ class rational:
             return False
 
 def main():
-    # fraction = Rational(int(input("numerator:")), int(input("denominator:")))
     fraction1 = rational(2, 5)**rational(1,4)
-    bad2 = fractionize(0.943)
-    print(bad2)
+    print(fraction1 )
 
 
 if __name__ == '__main__':
